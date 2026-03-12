@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import "@react-email-dnd/editor/styles.css"
+import { CanvasProvider, EmailEditor } from "@react-email-dnd/editor";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+		return (
+			<div className="App">
+					{process.env.REACT_APP_ANALYTICS_TOGGLE === 'false' && <>
+              <CanvasProvider onSave={(doc) => console.log(doc)} onDocumentChange={() => console.log('111')}>
+                  <EmailEditor onSave={(doc) => console.log(doc)}/>
+              </CanvasProvider>
+          </>}
+					{process.env.REACT_APP_ANALYTICS_TOGGLE === 'true' && <>Toggle True</>}
+			</div>
+		);
 }
 
 export default App;
