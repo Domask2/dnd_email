@@ -6,12 +6,12 @@ import { CanvasProvider, EmailEditor } from "@react-email-dnd/editor";
 function App() {
 		return (
 			<div className="App">
-					{process.env.REACT_APP_ANALYTICS_TOGGLE === 'false' && <>
+					{process.env.REACT_APP_ANALYTICS_TOGGLE === 'true' && <>
               <CanvasProvider onSave={(doc) => console.log(doc)} onDocumentChange={() => console.log('111')}>
                   <EmailEditor onSave={(doc) => console.log(doc)}/>
               </CanvasProvider>
           </>}
-					{process.env.REACT_APP_ANALYTICS_TOGGLE === 'true' && <>Toggle True</>}
+					{process.env.REACT_APP_ANALYTICS_TOGGLE === 'false' && <>Toggle True</>}
 			</div>
 		);
 }
